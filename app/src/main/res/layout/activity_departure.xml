@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkgrd_main"
+    tools:context=".Departure">
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/header">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="cursive"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="@string/txtTitleDeparture"
+                    android:textColor="#FFFDFD"
+                    android:textSize="52sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/homeImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:clickable="true"
+                    android:src="@drawable/home" />
+
+                <ImageView
+                    android:id="@+id/acctImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:clickable="true"
+                    android:src="@drawable/account" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutOnComplete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bluebox"
+                android:padding="5dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/checkmark"
+                    />
+
+                <TextView
+                    android:id="@+id/uponComplete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="14sp"
+                    android:text="Complete"
+                    android:textColor="#267C9F"/>
+            </RelativeLayout>
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginLeft="10dp"
+                android:padding="20dp"
+                android:text="@string/dFirstStep"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:buttonTint="@color/white"/>
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginLeft="10dp"
+                android:padding="20dp"
+                android:text="@string/dSecondStep"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:buttonTint="@color/white"/>
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginLeft="10dp"
+                android:padding="20dp"
+                android:text="@string/dThirdStep"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:buttonTint="@color/white"/>
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginLeft="10dp"
+                android:padding="20dp"
+                android:text="@string/dFourthStep"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:buttonTint="@color/white"/>
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginLeft="10dp"
+                android:padding="20dp"
+                android:text="@string/dFifthStep"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:buttonTint="@color/white"/>
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginLeft="10dp"
+                android:padding="20dp"
+                android:text="@string/dSixthStep"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:buttonTint="@color/white"/>
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:buttonTint="@color/white"
+                android:checked="false"
+                android:padding="20dp"
+                android:text="@string/dSeventhStep"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginLeft="10dp"
+                android:padding="20dp"
+                android:text="@string/dEighthStep"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:buttonTint="@color/white"/>
+
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginLeft="10dp"
+                android:padding="20dp"
+                android:text="@string/dNinthStep"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:buttonTint="@color/white"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

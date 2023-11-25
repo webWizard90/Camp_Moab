@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/add_photo.xml" value="0.186" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/add_photo_with_text.xml" value="0.186" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/arrow_left.xml" value="0.1725" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/arrow_right.xml" value="0.1" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/bkgrd_main.xml" value="0.1495" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/bluebox.xml" value="0.2" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/border.xml" value="0.1215" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/border2.xml" value="0.1215" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/border_grey.xml" value="0.1755" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/btn_view.xml" value="0.1725" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/checkmark.xml" value="0.3615" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/checkmark_circle.xml" value="0.3235" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/checkmark_circle_green.xml" value="0.3235" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/checkmark_circle_red.xml" value="0.3235" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/circle.xml" value="0.3615" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/circle_border.xml" value="0.1215" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/delete.xml" value="0.1" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/grad.xml" value="0.126" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/greenbox.xml" value="0.1215" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/round_corner.xml" value="0.1" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/drawable/whitebox.xml" value="0.174" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout-v31/activity_main.xml" value="0.5453125" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_amenities.xml" value="0.3581780538302277" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_arrival.xml" value="0.25" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_arrival2.xml" value="0.5405128205128205" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_calendar_popup.xml" value="0.4078674948240166" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_confirm_booking.xml" value="0.364258230012826" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_create_acct.xml" value="0.364258230012826" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_custom_spinner.xml" value="0.32107738349722104" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_date_booking.xml" value="0.1" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_departure.xml" value="0.4043321299638989" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_edit_reservation.xml" value="0.33" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_googlemaps.xml" value="0.3588011819333052" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_hiking_trails.xml" value="0.1" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_list_item.xml" value="0.3" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_login.xml" value="0.32107738349722104" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_main.xml" value="0.3731481481481482" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_num_guest_booking.xml" value="0.3002780352177943" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_reservations.xml" value="0.1" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/activity_user_account.xml" value="0.22" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/admin_activity_main.xml" value="0.4476271911073108" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/admin_confirm_bookings.xml" value="0.4140786749482402" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/admin_confirmation_card.xml" value="0.4476271911073108" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/admin_controls.xml" value="0.43056141831996625" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/admin_edit_res.xml" value="0.33732364258230013" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/admin_res_card.xml" value="0.33" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/admin_user_card.xml" value="0.24623115577889448" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/admin_user_list.xml" value="0.4149377593360996" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/custom_dialog.xml" value="0.3046800382043935" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/reservation_card.xml" value="0.22" />
+        <entry key="..\:/Workspace/CampMoab/app/src/main/res/layout/view_pager.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
