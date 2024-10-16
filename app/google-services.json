@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "653804291913",
+    "firebase_url": "https://camp-moab-default-rtdb.firebaseio.com",
+    "project_id": "camp-moab",
+    "storage_bucket": "camp-moab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653804291913:android:def087ecd90256253bfc98",
+        "android_client_info": {
+          "package_name": "net.androidbootcamp.campmoab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653804291913-8uli4sgqs4b4k1mago9286d74g1npgus.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmox11JxhP1Fw-0qXHsksyXTL8ov3wm7U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653804291913-8uli4sgqs4b4k1mago9286d74g1npgus.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

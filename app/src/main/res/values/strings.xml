@@ -1,0 +1,129 @@
+<resources>
+    <string name="app_name">Camp Moab</string>
+    <string name="txtTitle">Welcome To Camp Moab!</string>
+    <string name="webURL">Map Location</string>
+    <string name="webLocation">Map Location</string>
+    <string name="imgHouse">Camp Moab House</string>
+    <!-- Utility links-->
+    <string name="btnHome">Home Page</string>
+    <string name="btnAccount">Account</string>
+    <!--Trails-->
+    <string name="txtTitleHikes">Local Hiking Trails</string>
+    <string name="imgCaronaArch">Corona Arch Hiking Map Image</string>
+    <string name="imgHiddenValley">Hidden Valley Map Image</string>
+    <string name="imgNegroBill">Negro Bill Canyon Image</string>
+    <string name="imgMorningGlory">Morning Glory Bridge Image</string>
+    <string name="txtHiddenValley">A quick hike up to the saddle or a longer hike to the pictographs.</string>
+    <string name="txtCoronaArch">Short in/out easy trail with a great view, particularly when Arches is full</string>
+    <string name="txtDescription">Hiking Map Trail From The House</string>
+    <string name="txtNegroBill">A great hike through trees with beautiful sandstone formations and a stream that flows alongside of it.  Branches off at the end towards Morning Glory Bridge.</string>
+    <string name="txtMorningGlory">This is a sandy hike with streams and beautiful formations.  At the end of the trail there is fresh spring water that comes out of the side of the mountain. Note: During higher tides you might get your feet wet, so wear appropriate shoes.</string>
+    <!--Amenities-->
+    <string name="btnAmenities">Amenities</string>
+    <string name="txtTitleAmenities">Amenities</string>
+    <string name="imgEnlarge">House Amenities Images</string>
+    <string-array name="amenitiesDescriptions">
+        <item>Light switch with dimmer on the left, lock box on the right.</item>
+        <item>Morning coffee view.</item>
+        <item>Wall maps to help plan your adventures.</item>
+        <item>First aide kit has everything from aspirin to antacids, and sutures to bandages.</item>
+        <item>Using the remote, press listen to Music.</item>
+        <item>The NEST controls heat</item>
+        <item>The Dial controls cooling.</item>
+        <item>Put Dial on high to start cooling down the house. Once it is cooled, switch it to low and set the temperature 2 to 3 degrees cooler than you normally would, even when you are gone. Do not worry, power usage is very low.</item>
+        <item>Outside the kitchen windows, there is a hose and faucet.  Let the water fill the cooler for 5 minutes prior to turning the unit on to prime the pads.</item>
+        <item>Follow instructions for use.</item>
+    </string-array>
+    <!--Arrival-->
+    <string name="btnArrival">Arrival</string>
+    <string name="txtTitleArrival">Upon Arrival</string>
+    <string name="aFirstStep">Turn cooler on or heat up.</string>
+    <string name="aSecondStep">Unplug the camera in the kitchen.</string>
+    <string name="aThirdStep">Fold plastic sheets and slide them under the beds or place in the closets.</string>
+    <string name="aFourthStep">Wipe down the counters and all surfaces.</string>
+    <string name="aFifthStep">Turn the water to the washing machine on, located on the left of the wall.</string>
+    <string name="aImportantToNote"><u>IMPORTANT: USE THE REMOTE CONTROL!</u> The static electricity can damage the electronics.</string>
+
+    <array name="extraInfoOnArrival">
+        <item>1st room has a queen size bed and 2nd room has a full size bunk bed.</item>
+        <item>Towels are located in the hallway closet.</item>
+        <item>Tuesday is trash day.</item>
+        <item>Set your recyclables aside to bring back with you, otherwise there is a small
+            recycling center in town you can sort and drop off glass and paper items.
+        </item>
+        <item>Scan the wall maps for to plan your trips and utalize the books for hiking and
+            4-wheeling trails.
+        </item>
+        <item>When the air conditioner is on, open at least one window 2-3" in the kitchen and livingroom and any additional rooms you want the air to flow to.
+        </item>
+    </array>
+    <string name="keyCode">7244</string>
+    <string name="networkID">moabCentral</string>
+    <string name="networkPassword">jeepmoab</string>
+    <!--
+    <string name="aExtraInfoItem1">1st room has a queen size bed and 2nd room has a full size bunk bed.</string>
+    <string name="aExtraInfoItem2">Towels are located in the hallway closet</string>
+    <string name="aExtraInfoItem3">Tuesday is trash day</string>
+    <string name="aExtraInfoItem4">Set your recycleables aside to bring back with you otherwise there is a small recycling center in town you can sort and drop off glass and paper items.</string>
+    <string name="aExtraInfoItem5">Scan the wall maps for to plan your trips and utalize the books for hiking and 4-wheeling trails</string>
+    <string name="aExtraInfoItem6">When the air conditioner is on, open at least one window in the guest bedrooms, kitchen, or living room 2-3" to allow the air to move through the house.</string>
+    -->
+    <!--Departure -->
+    <string name="btnDeparture">Departure</string>
+    <string name="txtTitleDeparture">Upon Departure</string>
+    <string name="dFirstStep">If you slept in the bed (without a sleeping bag), strip and wash the sheets and remake the bed.</string>
+    <string name="dSecondStep">Cover the beds with the plastic sheets.</string>
+    <string name="dThirdStep">Close the mountain-side window shades and curtains in the bedrooms.</string>
+    <string name="dFourthStep">Turn the cooler system off or the Nest to eco mode.</string>
+    <string name="dFifthStep">Turn the water off.</string>
+    <string name="dSixthStep">If you turned the water to the washing machine on, turn it off.</string>
+    <string name="dSeventhStep">Verify the backdoor is locked (Note: always "unlocked" from the inside and deadbolt only for the front door).</string>
+    <string name="dEighthStep">Verify all windows are closed and locked.</string>
+    <string name="dNinthStep">Put the key back in the lock-box and scroll the numbers.</string>
+    <!--For Login and Account-->
+    <string name="txtName">Name</string>
+    <string name="txtNumber">Phone Number</string>
+    <string name="txtEmail">Email</string>
+    <string name="txtPass">Password</string>
+    <string name="txtNewTitle">Create Account</string>
+    <string name="btnLogout"> Logout </string>
+    <string name="btnLogin">Login</string>
+    <string name="btnPassChange">Reset Password</string>
+    <string name="btnDeleteAcct">Delete Account</string>
+    <string name="txtRegister">Create Account</string>
+    <string name="txtAccount">Account</string>
+    <!-- ViewReservations-->
+    <string name="btnReservations">Reservations</string>
+    <string name="btnReserve">Book</string>
+    <string name="btnBookNow">Book Now!</string>
+    <string name="btnDeleteRes">Delete Reservation</string>
+    <string name="btnNewRes">New Reservation</string>
+    <string name="qty">QTY</string>
+    <!-- For Activity CalendarActivity XML -->
+    <string name="txtOccupants"># of Occupants</string>
+    <string name="btnBook">Select Dates</string>
+    <string name="txtHintNumber">Phone Number</string>
+    <string name="txtTitleBooking">Book Your Stay</string>
+    <string name="btnConfirmDate">Confirm Date</string>
+    <string name="btnConfirmGuests">Confirm Guests</string>
+    <string name="btnConfirmNotes">Confirm Notes</string>
+    <string name="btnNext">Next</string>
+    <string name="btnConfirmRes">Confirm Reservation</string>
+    <string name="txtGroup"># Of Occupants</string>
+    <string name="firstName">First Name: </string>
+    <string name="lastName">Last Name: </string>
+    <string name="title_activity_google_maps">GoogleMaps</string>
+
+    <string-array name="numGuests">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <!--> Admin Booking Confirmations <-->
+    <string name="txtTitleUserBookings"> User Bookings</string>
+    <string name="txtDescriptionOfBookingsAction">Click the button on each reservation to change the status. Choose from Confirmed, Pending, or Cancelled</string>
+</resources>

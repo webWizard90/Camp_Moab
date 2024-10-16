@@ -1,0 +1,4 @@
+<shape android:height="24dp" android:tint="#EA3535"
+    android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+</shape>

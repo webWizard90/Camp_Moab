@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout"
+    android:background="@drawable/grad"
+    android:orientation="horizontal">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/closeButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="top|end"
+        android:clickable="true"
+        android:src="@drawable/close"/>
+
+    <ImageView
+        android:id="@+id/leftNav"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_gravity="center_vertical|start"
+        android:clickable="true"
+        android:src="@drawable/arrow_left"
+        android:background="@color/light_yellow"/>
+
+    <ImageView
+        android:id="@+id/rightNav"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="10dp"
+        android:layout_gravity="center_vertical|end"
+        android:clickable="true"
+        android:src="@drawable/arrow_right"
+        android:background="@color/light_yellow"/>
+
+    <TextView
+        android:id="@+id/textViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_yellow"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_gravity="bottom"
+        android:padding="10dp"
+        android:text="Image Name"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+</FrameLayout>

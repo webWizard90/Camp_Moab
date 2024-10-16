@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="Black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_yellow">#FBF2C6</color>
+    <color name="yellow">#FFE53B</color>
+    <color name="darkYellow">#F4BB10</color>
+    <color name="light_blue">#DCF8FB</color>
+    <color name="peach">#FBD6B0</color>
+    <color name="solidCircle">#F8F7F6</color>
+    <color name="circleBorder">#FD1212</color>
+    <color name="red">#FFF61F38</color>
+    <color name="heading">#4159DA</color>
+    <color name="grey">#D1D0D0</color>
+    <color name="lightGrey">#EAE7E7</color>
+    <color name="darkGreen">#104612</color>
+
+    // this is for todays date
+    <color name="dateTimeRangePickerStateToday">#ffcf40</color>
+
+    // this is for date range selection
+    <color name="calendar_selected_day_bg">#F81403</color>
+    <color name="calendar_selected_range_bg">#F8BA03</color>
+
+
+    // this is for transparency between date cells
+    <color name="transparent">#00000000</color>
+
+    // this is for Deactivated dates
+    <color name="calendar_range_deactivated">#7E6EAF</color>
+</resources>

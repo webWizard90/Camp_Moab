@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ConfirmedTextAppearance1">
+        <item name="android:textColor">@color/purple_200</item>
+        <item name="android:textColorHint">@color/purple</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:hint">Reserved</item>
+    </style>
+
+    <!-- Custom style for PopupMenu -->
+    <style name="CustomPopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/yellow</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkgrd_main"
+    tools:context=".Arrival">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/layoutOnComplete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bluebox"
+                android:padding="5dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/checkmark"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/uponComplete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Complete"
+                    android:textColor="#267C9F"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:buttonTint="@color/white"
+                android:checked="false"
+                android:padding="20dp"
+                android:text="@string/aFirstStep"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:buttonTint="@color/white"
+                android:checked="false"
+                android:padding="20dp"
+                android:text="@string/aSecondStep"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:buttonTint="@color/white"
+                android:checked="false"
+                android:padding="20dp"
+                android:text="@string/aThirdStep"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:buttonTint="@color/white"
+                android:checked="false"
+                android:padding="20dp"
+                android:text="@string/aFourthStep"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:buttonTint="@color/white"
+                android:checked="false"
+                android:padding="20dp"
+                android:text="@string/aFifthStep"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:text="@string/aImportantToNote"
+                android:textColor="@color/light_blue"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/toNoteTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="10dp"
+                android:text="Additional Information:"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="wrap_content"
+                android:layout_height="528dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:dividerHeight="1dp" />
+
+            <LinearLayout
+                android:id="@+id/layoutCodes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/bluebox"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/keyCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="left"
+                        android:padding="12dp"
+                        android:text="Lockbox Code:"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/networkID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="12dp"
+                        android:text="Newtork ID:"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/networkPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="left"
+                        android:padding="12dp"
+                        android:text="Network Password:"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/txtKeyCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="left"
+                        android:padding="12dp"
+                        android:text="@string/keyCode"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtNetworkID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="12dp"
+                        android:text="@string/networkID"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtNetworkPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="left"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:text="@string/networkPassword"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

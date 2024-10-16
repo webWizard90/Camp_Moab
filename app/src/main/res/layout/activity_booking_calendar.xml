@@ -1,0 +1,192 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/grad"
+    android:fillViewport="true"
+    tools:context=".Bookings.CalendarActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <RelativeLayout
+            android:id="@+id/editTextFieldContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:id="@+id/linearTextLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <LinearLayout
+                    android:id="@+id/linearNestedLayout1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="left">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/border"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/tvCheckinLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="CHECKIN"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/editCheckinDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="MM/DD/YYYY"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearNestedLayout2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="right">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/border"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/tvCheckoutLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="CHECKOUT"
+                            android:textSize="18dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/editCheckoutDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="MM/DD/YYYY"
+                            android:textSize="16dp"
+                            android:layout_marginTop="5dp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/guestLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearTextLayout"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/guests"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:id="@+id/txtGuests"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:padding="5dp"
+                        android:layout_alignParentStart="true"
+                        android:text="GUESTS"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtSelectedGuests"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_below="@id/txtGuests"
+                        android:layout_alignParentStart="true"
+                        android:text="1 Guest"
+                        android:textSize="16dp" />
+
+                    <net.androidbootcamp.campmoab.Classes.CustomSpinnerClass
+                        android:id="@+id/spinnerGuests"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:dropDownWidth="match_parent"
+                        android:overlapAnchor="false"
+                        android:popupBackground="@drawable/rounded_dropdown_background"
+                        android:spinnerMode="dropdown"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp" >
+
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_calendar_background"
+                android:scaleType="fitCenter"
+                android:textColor="@color/black"
+                app:mcv_calendarMode="month"
+                app:mcv_selectionColor="@color/red"
+                app:mcv_showOtherDates="all" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_below="@id/body"
+            android:padding="2dp"
+            android:text="@string/btnNext"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            app:backgroundTint="@color/calendar_selected_range_bg"/>
+
+    </LinearLayout>
+</ScrollView>
