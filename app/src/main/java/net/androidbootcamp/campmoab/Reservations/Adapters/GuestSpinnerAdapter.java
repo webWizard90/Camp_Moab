@@ -1,6 +1,5 @@
-package net.androidbootcamp.campmoab.Bookings.Adapters;
+package net.androidbootcamp.campmoab.Reservations.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,17 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import net.androidbootcamp.campmoab.Bookings.CalendarActivity;
 import net.androidbootcamp.campmoab.Classes.CustomSpinnerClass;
 import net.androidbootcamp.campmoab.R;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;

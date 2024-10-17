@@ -1,4 +1,4 @@
-package net.androidbootcamp.campmoab;
+package net.androidbootcamp.campmoab.ArrivalsDepartures;
 
 import androidx.annotation.NonNull;
 
@@ -18,7 +18,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import net.androidbootcamp.campmoab.Classes.BookingClass;
+import net.androidbootcamp.campmoab.BaseActivities.BaseActivity;
+import net.androidbootcamp.campmoab.Classes.ReservationClass;
+import net.androidbootcamp.campmoab.R;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -27,7 +29,7 @@ import java.util.ArrayList;
 public class Departure extends BaseActivity {
     private CheckBox first, second, third, fourth, fifth, sixth, seventh, eighth, ninth;
     private RelativeLayout relativeLayout;
-    private static final String RESERVATIONS = "ViewReservations";
+    private static final String RESERVATIONS = "Reservations";
     private String uid, arrivalDateFromFB;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
     private FirebaseUser user;
@@ -77,7 +79,7 @@ public class Departure extends BaseActivity {
 
                 if (snapshot.exists()) {
                     for (DataSnapshot date : snapshot.child(RESERVATIONS).getChildren()) {
-                        BookingClass snapDate = date.getValue(BookingClass.class);
+                        ReservationClass snapDate = date.getValue(ReservationClass.class);
 
                         arrivalDateFromFB = snapDate.getArrivalDate();
                         arrivalDateList.add(arrivalDateFromFB);
@@ -191,21 +193,6 @@ public class Departure extends BaseActivity {
                 visibilityValidation();
             }
         });
-
-        /*home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Departure.this, MainActivity.class));
-            }
-        });
-
-        account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Departure.this, UserAccount.class));
-            }
-        });*/
-
     }
 
     private void save(String key, boolean isChecked) {

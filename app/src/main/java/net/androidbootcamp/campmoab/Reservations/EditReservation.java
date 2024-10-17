@@ -1,4 +1,4 @@
-package net.androidbootcamp.campmoab.Bookings;
+package net.androidbootcamp.campmoab.Reservations;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -29,13 +29,12 @@ import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import com.prolificinteractive.materialcalendarview.OnRangeSelectedListener;
 
-import net.androidbootcamp.campmoab.BaseActivity;
-import net.androidbootcamp.campmoab.Bookings.Adapters.GuestSpinnerAdapter;
-import net.androidbootcamp.campmoab.Classes.BookingClass;
+import net.androidbootcamp.campmoab.BaseActivities.BaseActivity;
+import net.androidbootcamp.campmoab.Classes.ReservationClass;
+import net.androidbootcamp.campmoab.Reservations.Adapters.GuestSpinnerAdapter;
 import net.androidbootcamp.campmoab.Classes.CustomSpinnerClass;
 import net.androidbootcamp.campmoab.Classes.DateClass;
 import net.androidbootcamp.campmoab.Classes.FirebaseHelperClass;
-import net.androidbootcamp.campmoab.Classes.PopupCalendarClass;
 import net.androidbootcamp.campmoab.R;
 
 import java.text.ParseException;
@@ -55,7 +54,7 @@ public class EditReservation extends BaseActivity {
     private GuestSpinnerAdapter adapter;
     private Button btnUpdate;
     private LinearLayout idLayout;
-    private String arrival, departure, notes, status, resID, name, email, dateBooked, UID;
+    private String arrival, departure, notes, status, resID, name, email, dateBooked, UID, editedBy, dateEdited;
     private static final String RESERVATIONS = "Reservations";
     private static final String USERS = "Users";
     private FirebaseHelperClass firebaseHelper;
@@ -65,9 +64,8 @@ public class EditReservation extends BaseActivity {
     private ArrayList<Long> quantities;
     private LinearLayout idBodyLayout;
     private boolean isAdmin = false;
-    private List<BookingClass> disableDates;
+    private List<ReservationClass> disableDates;
     private MaterialCalendarView calendarView;
-    private PopupCalendarClass popupCalendarClass;
     private DateClass dateClass;
     private DatePickerDialog.OnDateSetListener dateSetListener;
     private CalendarDay checkinDate, checkoutDate;
@@ -268,6 +266,13 @@ public class EditReservation extends BaseActivity {
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Remove Firebase listeners to prevent memory leaks
+        // Placeholder for cleanup code if needed in the future
+    }
+
     // Method to btnUpdate views based on user access level
     private void updateViewIfAdmin() {
         if (isAdmin) {
@@ -279,7 +284,7 @@ public class EditReservation extends BaseActivity {
         }
     }
 
-    private void disableDates(List<BookingClass> disableDates) throws ParseException {
+    private void disableDates(List<ReservationClass> disableDates) throws ParseException {
         dateClass.disableDates(disableDates, calendarView);
     }
 
@@ -385,12 +390,14 @@ public class EditReservation extends BaseActivity {
                     //Loop 1 to go through all the child nodes of users
                     for (DataSnapshot ds : snapshot.getChildren()) {
                         for (DataSnapshot ds2 : ds.getChildren()) {
-                            BookingClass bookings = ds2.getValue(BookingClass.class);
+                            ReservationClass bookings = ds2.getValue(ReservationClass.class);
                             assert bookings != null;
                             arrival = bookings.getArrivalDate();
                             departure = bookings.getDepartureDate();
                             //notes = bookings.getNotes();
                             status = bookings.getStatus();
+                            dateEdited = bookings.getDateEdited();
+                            editedBy = bookings.getEditedBy();
 
                             //Log.d("CalendarActivity", "ArrivalDateConfirmed: " + arrival);
                             //Log.d("CalendarActivity", "DepartureDateConfirmed: " + departureDate);
@@ -405,7 +412,7 @@ public class EditReservation extends BaseActivity {
 
                             // Add the dates to the list of disabled dates if they are not the current reservation
                             if (!arrival.equals(checkin.getText().toString()) && !departure.equals(checkout.getText().toString())) {
-                                disableDates.add(new BookingClass(arrival, departure));
+                                disableDates.add(new ReservationClass(arrival, departure));
                             } else {
                                 continue;
                             }
@@ -435,7 +442,7 @@ public class EditReservation extends BaseActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    BookingClass booking = snapshot.getValue(BookingClass.class);
+                    ReservationClass booking = snapshot.getValue(ReservationClass.class);
                     if (booking != null) {
                         arrival = booking.getArrivalDate();
                         departure = booking.getDepartureDate();
@@ -444,7 +451,7 @@ public class EditReservation extends BaseActivity {
                         notes = booking.getNotes();
                         status = booking.getStatus();
                         dateBooked = booking.getDateBooked();
-                        resID = booking.getReservationID();
+                        //resID = booking.getReservationID();
 
                         //Log.d("EditReservation", "ArrivalDate: " + arrivalDate);
                         //Log.d("EditReservation", "DepartureDate: " + departureDate);
@@ -482,7 +489,7 @@ public class EditReservation extends BaseActivity {
                             txtNotes.setText(notes);
                         }
 
-                        txtResID.setText(resID);
+                        //txtResID.setText(resID);
                         //txtStatus.setText(status);
 
                         // Set groupQty to the adapter
@@ -545,7 +552,7 @@ public class EditReservation extends BaseActivity {
 
     private void updateReservation() {
         DateClass dateClass = new DateClass();
-        user = firebaseHelper.getCurrentUser();
+        //user = firebaseHelper.getCurrentUser();
         groupQty = adapter.getGroupQty();
         resID = txtResID.getText().toString();
 
@@ -581,7 +588,7 @@ public class EditReservation extends BaseActivity {
         if (!updates.isEmpty()) {
             updates.put("dateEdited", dateEdited);
 
-            if (isAdmin) {
+            if (isAdmin && editedBy != null) {
                 updates.put("editedBy", user.getUid());
             } else {
                 updates.put("editedBy", UID);

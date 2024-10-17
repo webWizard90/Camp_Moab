@@ -15,7 +15,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import net.androidbootcamp.campmoab.Admin.Adapters.AdminUserAdapter;
-import net.androidbootcamp.campmoab.BaseActivity;
+import net.androidbootcamp.campmoab.BaseActivities.BaseActivity;
 import net.androidbootcamp.campmoab.R;
 import net.androidbootcamp.campmoab.Classes.UserClass;
 
@@ -31,7 +31,7 @@ public class AdminUsersList extends BaseActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getLayoutInflater().inflate(R.layout.admin_user_list, findViewById(R.id.content_frame));
+        getLayoutInflater().inflate(R.layout.activity_admin_user_list, findViewById(R.id.content_frame));
         toolbar.setTitle("Users");
 
         mainRecycler = (RecyclerView) findViewById(R.id.recyclerView);

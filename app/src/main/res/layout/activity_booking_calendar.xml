@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/grad"
     android:fillViewport="true"
-    tools:context=".Bookings.CalendarActivity">
+    tools:context=".Reservations.CalendarActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

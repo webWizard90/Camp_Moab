@@ -1,9 +1,8 @@
-package net.androidbootcamp.campmoab;
+package net.androidbootcamp.campmoab.BaseActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,14 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import net.androidbootcamp.campmoab.Admin.AdminUsersList;
 import net.androidbootcamp.campmoab.Classes.FirebaseHelperClass;
+import net.androidbootcamp.campmoab.MainActivity;
+import net.androidbootcamp.campmoab.R;
 import net.androidbootcamp.campmoab.UserAccountAttributes.LogoutActivity;
 import net.androidbootcamp.campmoab.UserAccountAttributes.UserAccount;
 

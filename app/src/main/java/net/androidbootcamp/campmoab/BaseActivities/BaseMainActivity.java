@@ -1,4 +1,4 @@
-package net.androidbootcamp.campmoab;
+package net.androidbootcamp.campmoab.BaseActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 import net.androidbootcamp.campmoab.Admin.AdminUsersList;
 import net.androidbootcamp.campmoab.Classes.FirebaseHelperClass;
+import net.androidbootcamp.campmoab.MainActivity;
+import net.androidbootcamp.campmoab.R;
 import net.androidbootcamp.campmoab.UserAccountAttributes.LogoutActivity;
 import net.androidbootcamp.campmoab.UserAccountAttributes.UserAccount;
 

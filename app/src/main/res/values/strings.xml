@@ -35,7 +35,7 @@
         <item>Follow instructions for use.</item>
     </string-array>
     <!--Arrival-->
-    <string name="btnArrival">Arrival</string>
+    <string name="btnArrival">On Arrival</string>
     <string name="txtTitleArrival">Upon Arrival</string>
     <string name="aFirstStep">Turn cooler on or heat up.</string>
     <string name="aSecondStep">Unplug the camera in the kitchen.</string>
@@ -69,7 +69,7 @@
     <string name="aExtraInfoItem6">When the air conditioner is on, open at least one window in the guest bedrooms, kitchen, or living room 2-3" to allow the air to move through the house.</string>
     -->
     <!--Departure -->
-    <string name="btnDeparture">Departure</string>
+    <string name="btnDeparture">On Departure</string>
     <string name="txtTitleDeparture">Upon Departure</string>
     <string name="dFirstStep">If you slept in the bed (without a sleeping bag), strip and wash the sheets and remake the bed.</string>
     <string name="dSecondStep">Cover the beds with the plastic sheets.</string>

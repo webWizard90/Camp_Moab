@@ -1,4 +1,4 @@
-package net.androidbootcamp.campmoab;
+package net.androidbootcamp.campmoab.ArrivalsDepartures;
 
 import androidx.annotation.NonNull;
 
@@ -26,7 +26,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 
-import net.androidbootcamp.campmoab.Classes.BookingClass;
+import net.androidbootcamp.campmoab.BaseActivities.BaseActivity;
+import net.androidbootcamp.campmoab.Classes.ReservationClass;
+import net.androidbootcamp.campmoab.R;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -37,7 +39,7 @@ public class Arrival extends BaseActivity {
     private RelativeLayout relativeLayout;
     private CheckBox first, second, third, fourth, fifth;
     private String uid;
-    private static final String RESERVATIONS = "ViewReservations";
+    private static final String RESERVATIONS = "Reservations";
     private TextView keyCode, networkID, networkPassword;
     //private ImageView home, account;
     private FirebaseUser user;
@@ -123,20 +125,6 @@ public class Arrival extends BaseActivity {
                 visibilityValidation();
             }
         });
-
-        /*home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Arrival.this, MainActivity.class));
-            }
-        });
-
-        account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Arrival.this, UserAccount.class));
-            }
-        });*/
     }
 
     private void save(String key, boolean isChecked) {
@@ -188,6 +176,7 @@ public class Arrival extends BaseActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.d("Arrival", "onDataChange triggered");
                 //Check if reservation dates exist in firebase
                 if (snapshot.exists()) {
                     String arrivalDateFromFB;
@@ -198,7 +187,7 @@ public class Arrival extends BaseActivity {
 
                     //If true, get all arrival dates and put them into an array list
                     for (DataSnapshot date: snapshot.getChildren()) {
-                        BookingClass snapDate = date.getValue(BookingClass.class);
+                        ReservationClass snapDate = date.getValue(ReservationClass.class);
 
                         arrivalDateFromFB = snapDate.getArrivalDate();
                         departureDateFromFB = snapDate.getDepartureDate();
@@ -236,6 +225,10 @@ public class Arrival extends BaseActivity {
                         Log.d("Arrival", "blurred: false");
                         //do not blur keyCode, networkID, and networkPassword
                     } else {
+                        keyCode.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+                        networkID.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+                        networkPassword.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+
                         //blur keyCode, networkID, and networkPassword with mask filter span
                         SpannableString spannableString = new SpannableString(keyCode.getText().toString());
                         spannableString.setSpan(new MaskFilterSpan(new BlurMaskFilter(25f, BlurMaskFilter.Blur.NORMAL)),
@@ -252,6 +245,10 @@ public class Arrival extends BaseActivity {
                     }
                 } else {
                     Log.d("Arrival", "No dates found");
+
+                    keyCode.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+                    networkID.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+                    networkPassword.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
                     //blur keyCode, networkID, and networkPassword with mask filter span
                     SpannableString spannableString = new SpannableString(keyCode.getText().toString());

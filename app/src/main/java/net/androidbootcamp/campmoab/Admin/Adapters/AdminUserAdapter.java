@@ -45,7 +45,7 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.View
     @NonNull
     @Override
     public ViewHolder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.admin_user_card, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_admin_user_card, parent, false);
         return new AdminUserAdapter.ViewHolder2(view);
     }
 
@@ -66,7 +66,4 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.View
 
     }
 }
-
-
-
 

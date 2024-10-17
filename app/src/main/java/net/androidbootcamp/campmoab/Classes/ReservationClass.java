@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BookingClass {
+public class ReservationClass {
     String arrivalDate;
     String departureDate;
     String notes;
@@ -19,14 +19,14 @@ public class BookingClass {
     //String UID;
     String reservationID;
 
-    public BookingClass() {}
+    public ReservationClass() {}
 
-    public BookingClass(String arrivalDate, String departureDate) {
+    public ReservationClass(String arrivalDate, String departureDate) {
         this.arrivalDate = arrivalDate;
         this.departureDate = departureDate;
     }
 
-    public BookingClass(String arrivalDate, String departureDate, ArrayList<Long> groupQty, String notes, String status, String dateBooked) {
+    public ReservationClass(String arrivalDate, String departureDate, ArrayList<Long> groupQty, String notes, String status, String dateBooked) {
         this.arrivalDate = arrivalDate;
         this.departureDate = departureDate;
         this.groupQty = groupQty;
@@ -35,7 +35,7 @@ public class BookingClass {
         this.dateBooked = dateBooked;
     }
 
-    public BookingClass(String arrivalDate, String departureDate, ArrayList<Long> groupQty, String notes, String status, String dateBooked, String reservationID) {
+    public ReservationClass(String arrivalDate, String departureDate, ArrayList<Long> groupQty, String notes, String status, String dateBooked, String reservationID) {
         this.arrivalDate = arrivalDate;
         this.departureDate = departureDate;
         this.groupQty = groupQty;
@@ -45,7 +45,7 @@ public class BookingClass {
         this.reservationID = reservationID;
     }
 
-    public BookingClass(String arrivalDate, String departureDate, ArrayList<Long> groupQty, String notes, String status, String dateBooked, String dateEdited, String editedBy, String reservationID) {
+    public ReservationClass(String arrivalDate, String departureDate, ArrayList<Long> groupQty, String notes, String status, String dateBooked, String dateEdited, String editedBy, String reservationID) {
         this.arrivalDate = arrivalDate;
         this.departureDate = departureDate;
         this.groupQty = groupQty;

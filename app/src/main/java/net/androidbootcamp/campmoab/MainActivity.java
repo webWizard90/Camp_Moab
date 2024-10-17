@@ -13,9 +13,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import net.androidbootcamp.campmoab.Amenities.Amenities;
-import net.androidbootcamp.campmoab.Bookings.CalendarActivity;
+import net.androidbootcamp.campmoab.BaseActivities.BaseMainActivity;
+import net.androidbootcamp.campmoab.ArrivalsDepartures.Arrival;
+import net.androidbootcamp.campmoab.ArrivalsDepartures.Departure;
+import net.androidbootcamp.campmoab.Reservations.CalendarActivity;
 import net.androidbootcamp.campmoab.Hiking_Trails.Hiking_Trails;
-import net.androidbootcamp.campmoab.Bookings.ViewReservations;
+import net.androidbootcamp.campmoab.Reservations.ViewReservations;
 
 import java.time.format.DateTimeFormatter;
 

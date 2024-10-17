@@ -5,6 +5,7 @@
     <!-- INTERNET permission added -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -39,16 +40,16 @@
             android:value="${MAPS_API_KEY}" />
 
         <activity
-            android:name=".Arrival"
+            android:name=".ArrivalsDepartures.Arrival"
             android:exported="false" />
         <activity
-            android:name=".Bookings.ConfirmBooking"
+            android:name=".Reservations.BookReservation"
             android:exported="false" />
         <activity
             android:name=".UserAccountAttributes.LogoutActivity"
             android:exported="false" />
         <activity
-            android:name=".Bookings.ViewReservations"
+            android:name=".Reservations.ViewReservations"
             android:exported="false" />
         <activity
             android:name=".UserAccountAttributes.UserAccount"
@@ -66,16 +67,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Bookings.EditReservation"
+            android:name=".Reservations.EditReservation"
             android:exported="false" />
         <activity
             android:name=".Hiking_Trails.Hiking_Trails"
             android:exported="false" />
         <activity
-            android:name=".Bookings.CalendarActivity"
+            android:name=".Reservations.CalendarActivity"
             android:exported="false" />
         <activity
-            android:name=".Departure"
+            android:name=".ArrivalsDepartures.Departure"
             android:exported="false" />
         <activity
             android:name=".Amenities.Amenities"
@@ -84,24 +85,8 @@
             android:name=".Amenities.ImageSwipeActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdminEditRes"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.AdminReservations"
-            android:exported="false" />
-        <activity
             android:name=".Admin.AdminUsersList"
             android:exported="false" />
-        <activity
-            android:name=".Admin.AdminMainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

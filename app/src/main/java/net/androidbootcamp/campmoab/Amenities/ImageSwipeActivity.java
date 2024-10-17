@@ -1,27 +1,28 @@
 package net.androidbootcamp.campmoab.Amenities;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import net.androidbootcamp.campmoab.Amenities.Adapters.ImagePagerAdapter;
 import net.androidbootcamp.campmoab.R;
 
 public class ImageSwipeActivity extends Activity {
     final String[] CONTENT = new String[]
             {"Front Lights",
                     "Yard View",
+                    "Back Deck",
+                    "Street View of the La Sal Mountains",
                     "Local views of 4x4 trails.",
                     "First aid kit with essential items.",
-                    "Access Sirius XM with the remote by clicking Listen to Music.",
+                    "Access Sirius XM with the global remote by clicking Listen to Music.",
+                    "Access Apps Menu by clicking Watch TV and ON/OFF to turn everything off.",
+                    "Use the Apps Remote to access Netflix, Hulu, and more. DO NOT USE POWER BUTTON.",
                     "Change heater controls with the dial.",
                     "Cooler Controls are located to the right of the TV.",
                     "Change cooler using the up and down buttons.",

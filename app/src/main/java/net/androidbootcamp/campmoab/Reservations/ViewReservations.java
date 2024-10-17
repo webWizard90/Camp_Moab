@@ -1,4 +1,4 @@
-package net.androidbootcamp.campmoab.Bookings;
+package net.androidbootcamp.campmoab.Reservations;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -18,9 +18,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import net.androidbootcamp.campmoab.BaseActivity;
-import net.androidbootcamp.campmoab.Bookings.Adapters.ResAdapter;
-import net.androidbootcamp.campmoab.Classes.BookingClass;
+import net.androidbootcamp.campmoab.BaseActivities.BaseActivity;
+import net.androidbootcamp.campmoab.Classes.ReservationClass;
+import net.androidbootcamp.campmoab.Reservations.Adapters.ResAdapter;
 import net.androidbootcamp.campmoab.Classes.DateClass;
 import net.androidbootcamp.campmoab.Classes.FirebaseHelperClass;
 import net.androidbootcamp.campmoab.MainActivity;
@@ -64,7 +64,7 @@ public class ViewReservations extends BaseActivity {
 
     // Query Current User Reservations Using UID
     private void loadCurrentUserReservations() {
-        ArrayList<BookingClass> userReservations = new ArrayList<>();
+        ArrayList<ReservationClass> userReservations = new ArrayList<>();
         DateClass date = new DateClass();
         String stToday = date.getCurrentFormattedDate();
 
@@ -74,33 +74,33 @@ public class ViewReservations extends BaseActivity {
         queryUserReservations.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<BookingClass> allConfirmedUserReservations = new ArrayList<>();
+                List<ReservationClass> allConfirmedUserReservations = new ArrayList<>();
                 resIDs = new ArrayList<>();
 
                 if (snapshot.exists()) {
                     //Log.d("ViewReservations", "Snapshot: " + "Snapshot exists");
                     for (DataSnapshot ds : snapshot.getChildren()) {
-                        BookingClass bookingClass = ds.getValue(BookingClass.class);
+                        ReservationClass reservationClass = ds.getValue(ReservationClass.class);
                         resID = ds.getKey();
 
-                        if (bookingClass != null && resID != null) {
+                        if (reservationClass != null && resID != null) {
                             /*Log.d("ViewReservations", "Loaded resID: " + resID
                                 + ", UID: " + UID
-                                + ", Notes: " + bookingClass.getNotes()
-                                + ", Arrival: " + bookingClass.getArrivalDate()
-                                + ", Departure: " + bookingClass.getDepartureDate()
-                                + ", GroupQty: " + bookingClass.getGroupQty());*/
+                                + ", Notes: " + reservationClass.getNotes()
+                                + ", Arrival: " + reservationClass.getArrivalDate()
+                                + ", Departure: " + reservationClass.getDepartureDate()
+                                + ", GroupQty: " + reservationClass.getGroupQty());*/
 
-                            LocalDate departureDate = date.parseStringToDate(bookingClass.getDepartureDate()); // Get the departure date (LocalDate)
+                            LocalDate departureDate = date.parseStringToDate(reservationClass.getDepartureDate()); // Get the departure date (LocalDate)
                             LocalDate today = LocalDate.now(); // Get the current date
 
                             if (departureDate.isAfter(today)) {
                                 resIDs.add(resID);
-                                allConfirmedUserReservations.add(bookingClass);
+                                allConfirmedUserReservations.add(reservationClass);
                             }
 
                         } else {
-                            Log.e("ViewReservations", "BookingClass: " + "BookingClass is null");
+                            Log.e("ViewReservations", "ReservationClass: " + "ReservationClass is null");
                         }
                     }
 
@@ -124,7 +124,7 @@ public class ViewReservations extends BaseActivity {
 
     // ADMIN QUERY FOR All RESERVATIONS
     private void loadAllReservations() {
-        ArrayList<BookingClass> allReservations = new ArrayList<>();
+        ArrayList<ReservationClass> allReservations = new ArrayList<>();
         ArrayList<String> UIDs = new ArrayList<>();
         resIDs = new ArrayList<>();
 
@@ -137,25 +137,25 @@ public class ViewReservations extends BaseActivity {
                         UID = dataSnapshot1.getKey();
                         //Log.d("ViewReservations", "All Reservations UID: " + UID);
 
-                        List<BookingClass> userReservations = new ArrayList<>();
+                        List<ReservationClass> userReservations = new ArrayList<>();
 
                         for (DataSnapshot dataSnapshot : dataSnapshot1.getChildren()) {
                             resID = dataSnapshot.getKey();
-                            BookingClass bookingClass = dataSnapshot.getValue(BookingClass.class);
+                            ReservationClass reservationClass = dataSnapshot.getValue(ReservationClass.class);
 
-                            if (bookingClass != null && resID != null) {
+                            if (reservationClass != null && resID != null) {
                                 resIDs.add(resID);
                                 UIDs.add(UID);
-                                bookingClass.setReservationID(resID);
+                                reservationClass.setReservationID(resID);
 
                                 /*Log.d("ViewReservations", "Loaded resID: " + resID
                                         + ", UID: " + UID
-                                        + ", Notes: " + bookingClass.getNotes()
-                                        + ", Arrival: " + bookingClass.getArrivalDate()
-                                        + ", Departure: " + bookingClass.getDepartureDate()
-                                        + ", GroupQty: " + bookingClass.getGroupQty());*/
+                                        + ", Notes: " + reservationClass.getNotes()
+                                        + ", Arrival: " + reservationClass.getArrivalDate()
+                                        + ", Departure: " + reservationClass.getDepartureDate()
+                                        + ", GroupQty: " + reservationClass.getGroupQty());*/
 
-                                userReservations.add(bookingClass);
+                                userReservations.add(reservationClass);
                             }
                         }
                         allReservations.addAll(userReservations);
@@ -182,7 +182,7 @@ public class ViewReservations extends BaseActivity {
         });
     }
 
-    private void loadUserInfo(ArrayList<BookingClass> userReservations, ArrayList<String> UIDs, ArrayList<String> resIDs) {
+    private void loadUserInfo(ArrayList<ReservationClass> userReservations, ArrayList<String> UIDs, ArrayList<String> resIDs) {
         ArrayList<UserClass> userArrayList = new ArrayList<>();
         // QUERY DB FOR ALL USERS
         Query queryUser = ref.child(USERS);
@@ -205,8 +205,8 @@ public class ViewReservations extends BaseActivity {
                                     lastName = userClass.getLastName();
                                     email = userClass.getEmail();
 
-                                    BookingClass bookingClass = new BookingClass();
-                                    bookingClass.setUser(new UserClass(firstName, lastName, email));
+                                    ReservationClass reservationClass = new ReservationClass();
+                                    reservationClass.setUser(new UserClass(firstName, lastName, email));
 
                                     //userArrayList.add(new UserClass(firstName, lastName, email, UIDs.get(i)));
                                     userArrayList.add(userClass);

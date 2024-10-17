@@ -1,4 +1,4 @@
-package net.androidbootcamp.campmoab.Amenities;
+package net.androidbootcamp.campmoab.Amenities.Adapters;
 
 import android.content.Context;
 import android.view.View;
@@ -9,12 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import net.androidbootcamp.campmoab.Amenities.Amenities;
+
 //Swipe activity image adapter\\
-class ImagePagerAdapter extends PagerAdapter {
+public class ImagePagerAdapter extends PagerAdapter {
     int[] pictures = Amenities.PICTURES;
     Context context;
 
-    ImagePagerAdapter(Context context)
+    public ImagePagerAdapter(Context context)
     {
         this.context = context;
     }

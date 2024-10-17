@@ -1,4 +1,4 @@
-package net.androidbootcamp.campmoab.Bookings;
+package net.androidbootcamp.campmoab.Reservations;
 
 import androidx.annotation.NonNull;
 
@@ -18,8 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
-import net.androidbootcamp.campmoab.BaseActivity;
-import net.androidbootcamp.campmoab.Classes.BookingClass;
+import net.androidbootcamp.campmoab.BaseActivities.BaseActivity;
+import net.androidbootcamp.campmoab.Classes.ReservationClass;
 import net.androidbootcamp.campmoab.Classes.DateClass;
 import net.androidbootcamp.campmoab.Classes.FirebaseHelperClass;
 import net.androidbootcamp.campmoab.R;
@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ConfirmBooking extends BaseActivity {
+public class BookReservation extends BaseActivity {
     private EditText additionalInfo;
     private TextView reservation;
     private Button confirmRes;
@@ -65,7 +65,7 @@ public class ConfirmBooking extends BaseActivity {
         user = firebaseHelper.getCurrentUser();
         UID = user.getUid(); // get the UID of the currently logged in user
         //checkUserAccessLevel();
-        //Log.d("ConfirmBooking", "User UID: " + UID);
+        //Log.d("BookReservation", "User UID: " + UID);
 
         SharedPreferences sharedPreferences = getSharedPreferences("TempBooking", MODE_PRIVATE);
         arrivalDate = sharedPreferences.getString("arrivalDate", String.valueOf(0));
@@ -76,11 +76,11 @@ public class ConfirmBooking extends BaseActivity {
         // Loop through shared preferences to get groupQty for each of the 4 groups
         for (int i = 0; i < 4; i++) {
             groupQty.add(sharedPreferences.getLong("ageGroup_" + i, 0));
-            //Log.d("ConfirmBooking", "GroupQty" + i + " :" + groupQty.get(i));
+            //Log.d("BookReservation", "GroupQty" + i + " :" + groupQty.get(i));
         }
 
-        Log.d("ConfirmBooking", "ArrivalDate: " + arrivalDate);
-        Log.d("ConfirmBooking","DepartureDate: " + departureDate);
+        Log.d("BookReservation", "ArrivalDate: " + arrivalDate);
+        Log.d("BookReservation","DepartureDate: " + departureDate);
 
 
         //set reservation text with formatted date
@@ -95,10 +95,10 @@ public class ConfirmBooking extends BaseActivity {
 
         //Parse and format date from sharedprefs
         localArrivalDate = LocalDate.parse(arrivalDate, formatter);
-        Log.d("ConfirmBooking", "Local Arrival Date: " + localArrivalDate);
+        Log.d("BookReservation", "Local Arrival Date: " + localArrivalDate);
 
         localDepartureDate = LocalDate.parse(departureDate, formatter);
-        Log.d("ConfirmBooking","Local Departure Date: " + localDepartureDate);
+        Log.d("BookReservation","Local Departure Date: " + localDepartureDate);
 
         List<String> ageGroups = Arrays.asList("Adults: ", "Children: ", "Infants: ", "Service Animals: ");
         //Loop through groupQty and add to linear layout with age group and qty of guests > 0
@@ -123,17 +123,17 @@ public class ConfirmBooking extends BaseActivity {
                 //send email to user email and camp moab email
                 //sendReservationBookingEmail(userId, arrivalDate, departureDate, guestList, additionalInfo.getText().toString(), status);
 
-                //Create bookingClass object with new formatted date
-                BookingClass bookingClass = new
-                        BookingClass(arrivalDate, departureDate, groupQty, additionalInfo.getText().toString(), status, dateBooked);
-                bookingClass.toMap();
+                //Create reservationClass object with new formatted date
+                ReservationClass reservationClass = new
+                        ReservationClass(arrivalDate, departureDate, groupQty, additionalInfo.getText().toString(), status, dateBooked);
+                reservationClass.toMap();
 
-                ref.child(RESERVATIONS).child(UID).child(resID).setValue(bookingClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                ref.child(RESERVATIONS).child(UID).child(resID).setValue(reservationClass).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        //Toast.makeText(ConfirmBooking.this, "Reservation Confirmed", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(ConfirmBooking.this, ViewReservations.class));
-                        Log.d("ConfirmBooking", "Reservation Confirmed for UID: " + UID + " ResID: " + resID);
+                        //Toast.makeText(BookReservation.this, "Reservation Confirmed", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(BookReservation.this, ViewReservations.class));
+                        Log.d("BookReservation", "Reservation Confirmed for UID: " + UID + " ResID: " + resID);
                     }
                 });
             }
@@ -169,8 +169,8 @@ public class ConfirmBooking extends BaseActivity {
                 try {
                     startActivity(Intent.createChooser(sendEmail, "Choose an Email client :"));
                 } catch (Exception e) {
-                    Toast.makeText(ConfirmBooking.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    Log.e("ConfirmBooking","Email Error: " + e);
+                    Toast.makeText(BookReservation.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.e("BookReservation","Email Error: " + e);
                 }
             }
 
@@ -199,13 +199,13 @@ public class ConfirmBooking extends BaseActivity {
                     guestList.add(name);
                 }
 
-                Log.d("ConfirmBooking", TAG + " Value is: " + guestList);
+                Log.d("BookReservation", TAG + " Value is: " + guestList);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 // Failed to read value
-                Log.w("ConfirmBooking", TAG + " Failed to read value. " + error.toException());
+                Log.w("BookReservation", TAG + " Failed to read value. " + error.toException());
             }
         };
 

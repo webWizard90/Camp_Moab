@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bkgrd_main"
-    tools:context=".Arrival">
+    tools:context=".ArrivalsDepartures.Arrival">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

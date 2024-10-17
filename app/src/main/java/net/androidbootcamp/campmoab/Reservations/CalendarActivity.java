@@ -1,4 +1,4 @@
-package net.androidbootcamp.campmoab.Bookings;
+package net.androidbootcamp.campmoab.Reservations;
 
 import androidx.annotation.NonNull;
 
@@ -24,12 +24,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
-import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 import com.prolificinteractive.materialcalendarview.OnRangeSelectedListener;
 
-import net.androidbootcamp.campmoab.BaseActivity;
-import net.androidbootcamp.campmoab.Bookings.Adapters.GuestSpinnerAdapter;
-import net.androidbootcamp.campmoab.Classes.BookingClass;
+import net.androidbootcamp.campmoab.BaseActivities.BaseActivity;
+import net.androidbootcamp.campmoab.Classes.ReservationClass;
+import net.androidbootcamp.campmoab.Reservations.Adapters.GuestSpinnerAdapter;
 import net.androidbootcamp.campmoab.Classes.CustomSpinnerClass;
 import net.androidbootcamp.campmoab.Classes.DateClass;
 import net.androidbootcamp.campmoab.Classes.FirebaseHelperClass;
@@ -47,7 +46,7 @@ public class CalendarActivity extends BaseActivity {
     //private Spinner spinnerGuests;
     private Button btnNext;
     private static final String RESERVATIONS = "Reservations";
-    private List<BookingClass> disableCD, disablePD, disableDates;
+    private List<ReservationClass> disableCD, disablePD, disableDates;
     private MaterialCalendarView calendarView;
     private DatePickerDialog.OnDateSetListener dateSetListener;
     private String arrivalDate, departureDate;
@@ -230,7 +229,7 @@ public class CalendarActivity extends BaseActivity {
                     //Log.d("CalendarActivity", "SharedPrefDepartureDate: " + sharedPref.getString("departureDate", ""));
 
                     //Move to next activity
-                    startActivity(new Intent(CalendarActivity.this, ConfirmBooking.class));
+                    startActivity(new Intent(CalendarActivity.this, BookReservation.class));
                 } else {
                     Toast.makeText(CalendarActivity.this, "Select Date Range", Toast.LENGTH_SHORT).show();
                     //throw new IllegalArgumentException("Selected date must be non-null.");
@@ -253,7 +252,7 @@ public class CalendarActivity extends BaseActivity {
                     for (DataSnapshot ds : snapshot.getChildren()) {
 
                         for (DataSnapshot ds2 : ds.getChildren()) {
-                            BookingClass bookings = ds2.getValue(BookingClass.class);
+                            ReservationClass bookings = ds2.getValue(ReservationClass.class);
                             assert bookings != null;
                             //String status = bookings.getStatus();
                             arrivalDate = bookings.getArrivalDate();
@@ -268,8 +267,8 @@ public class CalendarActivity extends BaseActivity {
                             //Log.d("CalendarActivity", "ArrivalDateConfirmed2: " + arrivalDate);
                             //Log.d("CalendarActivity", "DepartureDateConfirmed2: " + departureDate);
 
-                            //disableDates.add(new BookingClass(arrivalDate, departureDate));
-                            disableDates.add(new BookingClass(
+                            //disableDates.add(new ReservationClass(arrivalDate, departureDate));
+                            disableDates.add(new ReservationClass(
                                     dateClass.formatDate(arrivalCalendarDay),
                                     dateClass.formatDate(departureCalendarDay)
                             ));*/
@@ -284,7 +283,7 @@ public class CalendarActivity extends BaseActivity {
                             Log.d("CalendarActivity", "ArrivalDateConfirmed2: " + arrivalDate);
                             Log.d("CalendarActivity", "DepartureDateConfirmed2: " + departureDate);
 
-                            disableDates.add(new BookingClass(arrivalDate, departureDate));
+                            disableDates.add(new ReservationClass(arrivalDate, departureDate));
                         }
                     }
 
@@ -306,18 +305,18 @@ public class CalendarActivity extends BaseActivity {
     }
 
     // Disable dates that are confirmed
-    /*private void disableConfirmedDates(List<BookingClass> disableCD) throws ParseException {
+    /*private void disableConfirmedDates(List<ReservationClass> disableCD) throws ParseException {
        //dateClass.disableDates(disableCD, calendarView, "N/A");
         dateClass.disableDates(disableCD, calendarView);
     }
 
     // Disable dates that are pending
-    private void disablePendingDates(List<BookingClass> disablePD) throws ParseException {
+    private void disablePendingDates(List<ReservationClass> disablePD) throws ParseException {
         //dateClass.disableDates(disablePD, calendarView, "Pending");
         dateClass.disableDates(disablePD, calendarView);
     }*/
 
-    private void disableDates(List<BookingClass> disableDates) throws ParseException {
+    private void disableDates(List<ReservationClass> disableDates) throws ParseException {
         dateClass.disableDates(disableDates, calendarView);
     }
 

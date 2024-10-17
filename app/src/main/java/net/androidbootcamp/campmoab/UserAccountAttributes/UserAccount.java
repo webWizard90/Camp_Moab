@@ -35,9 +35,9 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import net.androidbootcamp.campmoab.BaseActivity;
-import net.androidbootcamp.campmoab.Bookings.CalendarActivity;
-import net.androidbootcamp.campmoab.Bookings.ViewReservations;
+import net.androidbootcamp.campmoab.BaseActivities.BaseActivity;
+import net.androidbootcamp.campmoab.Reservations.CalendarActivity;
+import net.androidbootcamp.campmoab.Reservations.ViewReservations;
 import net.androidbootcamp.campmoab.Classes.UserClass;
 import net.androidbootcamp.campmoab.R;
 

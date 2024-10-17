@@ -1,10 +1,8 @@
 package net.androidbootcamp.campmoab.Hiking_Trails;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
@@ -21,10 +19,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import net.androidbootcamp.campmoab.BaseActivity;
-import net.androidbootcamp.campmoab.MainActivity;
+import net.androidbootcamp.campmoab.BaseActivities.BaseActivity;
 import net.androidbootcamp.campmoab.R;
-import net.androidbootcamp.campmoab.UserAccountAttributes.UserAccount;
 
 public class Hiking_Trails extends BaseActivity implements GoogleMap.OnInfoWindowClickListener, OnMapReadyCallback {
     private LinearLayout hiddenView1, hiddenView2, hiddenView3, hiddenView4;
@@ -39,7 +35,7 @@ public class Hiking_Trails extends BaseActivity implements GoogleMap.OnInfoWindo
         getLayoutInflater().inflate(R.layout.activity_hiking_trails, findViewById(R.id.content_frame));
         toolbar.setTitle("Hiking Trails");
 
-        String[] hikes = {"Hidden Valley Trail", "Carona Arch Trail", "Negro Bill Canyon", "Morning Glory Bridge"};
+        //String[] hikes = {"Hidden Valley Trail", "Carona Arch Trail", "Negro Bill Canyon", "Morning Glory Bridge"};
         hiddenView1 = (LinearLayout) findViewById(R.id.hidden_view1);
         hiddenView2 = (LinearLayout) findViewById(R.id.hidden_view2);
         hiddenView3 = (LinearLayout) findViewById(R.id.hidden_view3);
@@ -52,11 +48,16 @@ public class Hiking_Trails extends BaseActivity implements GoogleMap.OnInfoWindo
         arrow2 = (ImageView) findViewById(R.id.iconDropDown2);
         arrow3 = (ImageView) findViewById(R.id.iconDropDown3);
         arrow4 = (ImageView) findViewById(R.id.iconDropDown4);
-        // Get the SupportMapFragment and request notification when the map is ready to be used.
-        mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
 
-        mapFragment.getMapAsync(this);
+        try {
+            // Get the SupportMapFragment and request notification when the map is ready to be used.
+            mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map);
+
+            mapFragment.getMapAsync(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         arrow1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +69,8 @@ public class Hiking_Trails extends BaseActivity implements GoogleMap.OnInfoWindo
                     // Here we use an object of the AutoTransition Class to create a default transition
                     TransitionManager.beginDelayedTransition(card1, new AutoTransition());
                     hiddenView1.setVisibility(View.GONE);
-                    arrow1.setImageResource(R.drawable.drop_down_arrow_black);
+                    arrow1.setImageResource(R.drawable.drop_down_arrow_blue);
+                    arrow1.animate().rotation(0);
                 }
                 // If the CardView is not expanded, set its visibility to
                 // visible and change the expand more icon to expand less.
@@ -76,6 +78,7 @@ public class Hiking_Trails extends BaseActivity implements GoogleMap.OnInfoWindo
                     TransitionManager.beginDelayedTransition(card1, new AutoTransition());
                     hiddenView1.setVisibility(View.VISIBLE);
                     arrow1.setImageResource(R.drawable.drop_down_arrow_black);
+                    arrow1.animate().rotation(180);
                 }
             }
         });
@@ -90,7 +93,8 @@ public class Hiking_Trails extends BaseActivity implements GoogleMap.OnInfoWindo
                     // Here we use an object of the AutoTransition Class to create a default transition
                     TransitionManager.beginDelayedTransition(card2, new AutoTransition());
                     hiddenView2.setVisibility(View.GONE);
-                    arrow2.setImageResource(R.drawable.drop_down_arrow_black);
+                    arrow2.setImageResource(R.drawable.drop_down_arrow_green);
+                    arrow2.animate().rotation(0);
                 }
                 // If the CardView is not expanded, set its visibility to
                 // visible and change the expand more icon to expand less.
@@ -98,6 +102,7 @@ public class Hiking_Trails extends BaseActivity implements GoogleMap.OnInfoWindo
                     TransitionManager.beginDelayedTransition(card2, new AutoTransition());
                     hiddenView2.setVisibility(View.VISIBLE);
                     arrow2.setImageResource(R.drawable.drop_down_arrow_black);
+                    arrow2.animate().rotation(180);
                 }
             }
         });
@@ -112,7 +117,8 @@ public class Hiking_Trails extends BaseActivity implements GoogleMap.OnInfoWindo
                     // Here we use an object of the AutoTransition Class to create a default transition
                     TransitionManager.beginDelayedTransition(card3, new AutoTransition());
                     hiddenView3.setVisibility(View.GONE);
-                    arrow3.setImageResource(R.drawable.drop_down_arrow_black);
+                    arrow3.setImageResource(R.drawable.drop_down_arrow_red);
+                    arrow3.animate().rotation(0);
                 }
                 // If the CardView is not expanded, set its visibility to
                 // visible and change the expand more icon to expand less.
@@ -120,6 +126,7 @@ public class Hiking_Trails extends BaseActivity implements GoogleMap.OnInfoWindo
                     TransitionManager.beginDelayedTransition(card3, new AutoTransition());
                     hiddenView3.setVisibility(View.VISIBLE);
                     arrow3.setImageResource(R.drawable.drop_down_arrow_black);
+                    arrow3.animate().rotation(180);
                 }
             }
         });
@@ -134,7 +141,8 @@ public class Hiking_Trails extends BaseActivity implements GoogleMap.OnInfoWindo
                     // Here we use an object of the AutoTransition Class to create a default transition
                     TransitionManager.beginDelayedTransition(card4, new AutoTransition());
                     hiddenView4.setVisibility(View.GONE);
-                    arrow4.setImageResource(R.drawable.drop_down_arrow_black);
+                    arrow4.setImageResource(R.drawable.drop_down_arrow_orange);
+                    arrow4.animate().rotation(0);
                 }
                 // If the CardView is not expanded, set its visibility to
                 // visible and change the expand more icon to expand less.
@@ -142,6 +150,7 @@ public class Hiking_Trails extends BaseActivity implements GoogleMap.OnInfoWindo
                     TransitionManager.beginDelayedTransition(card4, new AutoTransition());
                     hiddenView4.setVisibility(View.VISIBLE);
                     arrow4.setImageResource(R.drawable.drop_down_arrow_black);
+                    arrow4.animate().rotation(180);
                 }
             }
         });

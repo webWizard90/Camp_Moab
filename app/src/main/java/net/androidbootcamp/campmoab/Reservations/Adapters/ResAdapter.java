@@ -1,4 +1,4 @@
-package net.androidbootcamp.campmoab.Bookings.Adapters;
+package net.androidbootcamp.campmoab.Reservations.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -23,15 +23,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import net.androidbootcamp.campmoab.Classes.BookingClass;
-import net.androidbootcamp.campmoab.Bookings.EditReservation;
+import net.androidbootcamp.campmoab.Classes.ReservationClass;
+import net.androidbootcamp.campmoab.Reservations.EditReservation;
 import net.androidbootcamp.campmoab.Classes.DateClass;
 import net.androidbootcamp.campmoab.Classes.FirebaseHelperClass;
 import net.androidbootcamp.campmoab.R;
 import net.androidbootcamp.campmoab.Classes.UserClass;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,7 +38,7 @@ import java.util.List;
 public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder>{
     private static final String RESERVATIONS = "Reservations";
     Context context;
-    ArrayList<BookingClass> bookingClassArrayList;
+    ArrayList<ReservationClass> reservationClassArrayList;
     ArrayList<UserClass> userClassArrayList;
     ArrayList<String> UIDs;
     ArrayList<String> resIDs;
@@ -48,8 +47,8 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder>{
     private final boolean isAdmin;
 
     // Constructor for Users
-    public ResAdapter(ArrayList<BookingClass> bookingClassArrayList, String userID, ArrayList<String> resIDs, Context context, boolean isAdmin) {
-        this.bookingClassArrayList = bookingClassArrayList;
+    public ResAdapter(ArrayList<ReservationClass> reservationClassArrayList, String userID, ArrayList<String> resIDs, Context context, boolean isAdmin) {
+        this.reservationClassArrayList = reservationClassArrayList;
         this.userID = userID;
         this.resIDs = resIDs;
         this.context = context;
@@ -57,8 +56,8 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder>{
     }
 
     // Constructor for Admins
-    public ResAdapter(ArrayList<BookingClass> bookingClassArrayList, ArrayList<UserClass> userClassArrayList, ArrayList<String> UIDs, ArrayList<String> resIDs, Context context, boolean isAdmin) {
-        this.bookingClassArrayList = bookingClassArrayList;
+    public ResAdapter(ArrayList<ReservationClass> reservationClassArrayList, ArrayList<UserClass> userClassArrayList, ArrayList<String> UIDs, ArrayList<String> resIDs, Context context, boolean isAdmin) {
+        this.reservationClassArrayList = reservationClassArrayList;
         this.userClassArrayList = userClassArrayList;
         this.UIDs = UIDs;
         this.resIDs = resIDs;
@@ -78,7 +77,7 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         TextView guestCounts;
         DateClass dateClass = new DateClass();
-        BookingClass bookingClass = bookingClassArrayList.get(position);
+        ReservationClass reservationClass = reservationClassArrayList.get(position);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         if (isAdmin) {
@@ -119,12 +118,12 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder>{
         }
 
 
-        holder.resDate.setText(bookingClass.getArrivalDate() + " - " + bookingClass.getDepartureDate());
+        holder.resDate.setText(reservationClass.getArrivalDate() + " - " + reservationClass.getDepartureDate());
 
         List<String> ageGroups = Arrays.asList("Adults: ", "Children: ", "Infants: ", "Service Animals: ");
         // Loop through the group quantities and display them with the correct age group
         for (int i = 0; i < 4; i++) {
-            Long groupQty = bookingClass.getGroupQty().get(i);
+            Long groupQty = reservationClass.getGroupQty().get(i);
 
             // Only create and add the TextView if the quantity is greater than 0
             if (groupQty > 0) {
@@ -140,11 +139,11 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder>{
         }
 
         //Get text of reservation and add to appropriate view in Card view
-        if (bookingClass.getNotes() != null && !bookingClass.getNotes().isEmpty()) {
+        if (reservationClass.getNotes() != null && !reservationClass.getNotes().isEmpty()) {
             holder.notesTitle.setVisibility(View.VISIBLE);
             holder.notes.setVisibility(View.VISIBLE);
             holder.lineView6.setVisibility(View.VISIBLE);
-            holder.notes.setText(bookingClass.getNotes());
+            holder.notes.setText(reservationClass.getNotes());
         } else {
             holder.notesTitle.setVisibility(View.GONE);
             holder.notes.setVisibility(View.GONE);
@@ -154,7 +153,7 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder>{
         // Check if the reservation has started
         LocalDate currentDate = LocalDate.now();
         // Parse the reservation arrival date using the custom formatter
-        LocalDate reservationArrivalDate = dateClass.parseStringToDate(bookingClass.getArrivalDate());
+        LocalDate reservationArrivalDate = dateClass.parseStringToDate(reservationClass.getArrivalDate());
 
         if (currentDate.isAfter(reservationArrivalDate)) {
             // Hide the delete and modify buttons if the reservation has already started and the user is not an admin
@@ -180,12 +179,12 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder>{
             holder.modifyRez.setOnClickListener(v -> editReservation(position));
         }
 
-        holder.status.setText(bookingClass.getStatus());
+        holder.status.setText(reservationClass.getStatus());
     }
 
     public void deleteReservation(int position) {
         // Check if the position is valid for both lists
-        if (position < 0 || position >= bookingClassArrayList.size() || position >= userClassArrayList.size()) {
+        if (position < 0 || position >= reservationClassArrayList.size() || position >= userClassArrayList.size()) {
             Log.e("ResAdapter", "Invalid position: " + position);
             return; // Exit if the position is invalid
         }
@@ -235,39 +234,39 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder>{
 
     public void editReservation(int position) {    // Log the sizes of the lists before attempting to access elements
         Intent intent = new Intent(context, EditReservation.class);
-        //BookingClass bookingClass = bookingClassArrayList.toArray(new BookingClass[0])[position];
+        //ReservationClass bookingClass = reservationClassArrayList.toArray(new ReservationClass[0])[position];
 
         if (isAdmin) {
             // Ensure the position is valid for all lists
-            if (position < bookingClassArrayList.size() && position < UIDs.size() && position < resIDs.size()) {
+            if (position < reservationClassArrayList.size() && position < UIDs.size() && position < resIDs.size()) {
 
                 intent.putExtra("UID", UIDs.get(position));
                 intent.putExtra("resID", resIDs.get(position));
                 intent.putExtra("isAdmin", true);
 
                 Log.d("ResAdapter", "Position: " + position
-                        + ", bookingClassArrayList size: " + bookingClassArrayList.size()
+                        + ", reservationClassArrayList size: " + reservationClassArrayList.size()
                         + ", UIDs size: " + UIDs.size()
                         + ", resIDs size: " + resIDs.size());
 
             }
         } else {
             // Ensure the position is valid for all lists
-            if (position < bookingClassArrayList.size() && position < resIDs.size()) {
+            if (position < reservationClassArrayList.size() && position < resIDs.size()) {
                 intent.putExtra("resID", resIDs.get(position));
                 intent.putExtra("isAdmin", false);
 
                 Log.d("ResAdapter", "Position: " + position
-                        + ", bookingClassArrayList size: " + bookingClassArrayList.size()
+                        + ", reservationClassArrayList size: " + reservationClassArrayList.size()
                         + ", resIDs size: " + resIDs.size());
             }
         }
 
         Log.d("ResAdapter", "Position: " + position
                 + ", ResID: " + resIDs.get(position)
-                + ", Notes: " + bookingClassArrayList.get(position).getNotes()
-                + ", Arrival: " + bookingClassArrayList.get(position).getArrivalDate()
-                + ", Departure: " + bookingClassArrayList.get(position).getDepartureDate());
+                + ", Notes: " + reservationClassArrayList.get(position).getNotes()
+                + ", Arrival: " + reservationClassArrayList.get(position).getArrivalDate()
+                + ", Departure: " + reservationClassArrayList.get(position).getDepartureDate());
 
 
 
@@ -276,7 +275,7 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return Math.min(resIDs.size(), bookingClassArrayList.size());  // Ensure equal sizes
+        return Math.min(resIDs.size(), reservationClassArrayList.size());  // Ensure equal sizes
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -47,9 +47,11 @@ public class FirebaseHelperClass {
         ref.child(path).setValue(data)
                 .addOnSuccessListener(aVoid -> {
                     // Data was added successfully
+                    Log.d("Firebase", "Data added successfully at path: " + path);
                 })
                 .addOnFailureListener(e -> {
                     // Failed to add data
+                    Log.e("Firebase", "Failed to add data: " + e.getMessage());
                 });
     }
 
@@ -67,13 +69,9 @@ public class FirebaseHelperClass {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists() && snapshot.getValue(Boolean.class) != null) {
-                    boolean isAdmin = snapshot.getValue(Boolean.class);
-                    Log.d("Firebase", "User is an admin: " + isAdmin);
-                    callback.onAdminCheck(isAdmin);
-                } else {
-                    callback.onAdminCheck(false); // User is not an admin
-                }
+                boolean isAdmin = snapshot.exists() && snapshot.getValue(Boolean.class) != null && snapshot.getValue(Boolean.class);
+                Log.d("Firebase", "User is an admin: " + isAdmin);
+                callback.onAdminCheck(isAdmin);
             }
 
             @Override

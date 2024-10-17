@@ -1,6 +1,5 @@
 package net.androidbootcamp.campmoab.Classes;
 
-import android.util.Log;
 import android.util.Pair;
 import android.widget.TextView;
 
@@ -194,10 +193,10 @@ public class DateClass {
     }
 
     // Disable dates in range
-    public void disableDates(List<BookingClass> disableDates, MaterialCalendarView calendarView) throws ParseException {
+    public void disableDates(List<ReservationClass> disableDates, MaterialCalendarView calendarView) throws ParseException {
         dbDatesToDisable.clear(); // Clear previous dates
 
-        for (BookingClass booking : disableDates) {
+        for (ReservationClass booking : disableDates) {
             // Parse arrival and departure dates
             LocalDate arrivalFormat = LocalDate.parse(booking.getArrivalDate(), formatter);
             LocalDate departureFormat = LocalDate.parse(booking.getDepartureDate(), formatter);
