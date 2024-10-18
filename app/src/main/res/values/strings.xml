@@ -126,4 +126,6 @@
     <!--> Admin Booking Confirmations <-->
     <string name="txtTitleUserBookings"> User Bookings</string>
     <string name="txtDescriptionOfBookingsAction">Click the button on each reservation to change the status. Choose from Confirmed, Pending, or Cancelled</string>
+    <string name="btnConfirm">Confirm Reservation</string>
+    <string name="txtReservationMessage">"Please note: Your reservation is pending and not final until confirmed. You'll receive a confirmation once it's approved." </string>
 </resources>

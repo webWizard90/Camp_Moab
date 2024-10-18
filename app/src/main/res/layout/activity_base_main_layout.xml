@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:liftOnScroll="true" >
@@ -14,21 +15,16 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="Camp Moab"
-            app:menu="@menu/menu_main"
+            app:menu="@menu/menu"
             app:navigationIcon="@drawable/menu_drop_down"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             style="@style/Widget.MaterialComponents.Toolbar.Primary" />
 
-        <androidx.appcompat.widget.ActionMenuView
-            android:id="@+id/action_menu_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_anchorGravity="end" />
+    </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/topAppBar" />
-    </com.google.android.material.appbar.AppBarLayout>
+            android:layout_below="@id/appBarLayout" />
 </RelativeLayout>

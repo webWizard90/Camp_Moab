@@ -16,28 +16,23 @@ import com.google.firebase.auth.FirebaseUser;
 
 import net.androidbootcamp.campmoab.Admin.AdminUsersList;
 import net.androidbootcamp.campmoab.Classes.FirebaseHelperClass;
-import net.androidbootcamp.campmoab.MainActivity;
 import net.androidbootcamp.campmoab.R;
 import net.androidbootcamp.campmoab.UserAccountAttributes.LogoutActivity;
 import net.androidbootcamp.campmoab.UserAccountAttributes.UserAccount;
 
 public class BaseMainActivity extends AppCompatActivity {
-        protected MaterialToolbar toolbar;
+    protected MaterialToolbar toolbar;
     private FirebaseHelperClass firebaseHelper;
     private FirebaseUser user;
     private String UID;
-    private static final String ADMINS = "Admins";
     private boolean isAdmin = false;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_base_main_layout); // Use a layout that includes the toolbar
+            setContentView(R.layout.activity_base_main_layout); // Use a layout that does not include the toolbar options
             toolbar = findViewById(R.id.topAppBar);
             setSupportActionBar(toolbar);
-
-            // Set up navigation or home button listener
-            //toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
             toolbar = findViewById(R.id.topAppBar);
 
@@ -45,16 +40,10 @@ public class BaseMainActivity extends AppCompatActivity {
             user = firebaseHelper.getCurrentUser();
             UID = user.getUid();
 
-            // Set up navigation or home button listener
+            // Set up dropdown listener
             if (toolbar != null) {
                 setSupportActionBar(toolbar);
-                toolbar.setNavigationOnClickListener(v -> onBackPressed()); // Handle back button
                 toolbar.setNavigationOnClickListener(v -> showDropdownMenu(v)); // Handle rounded_dropdown_background menu
-            }
-
-            if (getSupportActionBar() != null) {
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                getSupportActionBar().setHomeButtonEnabled(true);
             }
 
             // Check user access level
@@ -63,24 +52,13 @@ public class BaseMainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);  // Inflate your menu
+        getMenuInflater().inflate(R.menu.menu_home, menu);  // Inflate your menu
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.home_button: // ID for the home button
-                startActivity(new Intent(this, MainActivity.class)); // Navigate to HomeActivity
-                return true;
-
-            case R.id.back_button: // ID for the back button
-                onBackPressed(); // Navigate back to the previous activity
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 
     // Method to show a rounded_dropdown_background menu when navigation icon is clicked

@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
 import net.androidbootcamp.campmoab.BaseActivities.BaseActivity;
+import net.androidbootcamp.campmoab.BaseActivities.BaseMainActivity;
 import net.androidbootcamp.campmoab.Classes.ReservationClass;
 import net.androidbootcamp.campmoab.Classes.DateClass;
 import net.androidbootcamp.campmoab.Classes.FirebaseHelperClass;
@@ -51,7 +52,7 @@ public class BookReservation extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getLayoutInflater().inflate(R.layout.activity_booking_confirmation, findViewById(R.id.content_frame));
+        getLayoutInflater().inflate(R.layout.activity_reservation_booking_confirmation, findViewById(R.id.content_frame));
         toolbar.setTitle("Confirm Reservation");
 
         //account = (ImageView) findViewById(R.id.acctImage);
@@ -64,7 +65,6 @@ public class BookReservation extends BaseActivity {
         ref = firebaseHelper.getRef();
         user = firebaseHelper.getCurrentUser();
         UID = user.getUid(); // get the UID of the currently logged in user
-        //checkUserAccessLevel();
         //Log.d("BookReservation", "User UID: " + UID);
 
         SharedPreferences sharedPreferences = getSharedPreferences("TempBooking", MODE_PRIVATE);
@@ -82,10 +82,8 @@ public class BookReservation extends BaseActivity {
         Log.d("BookReservation", "ArrivalDate: " + arrivalDate);
         Log.d("BookReservation","DepartureDate: " + departureDate);
 
-
         //set reservation text with formatted date
-        String stringDate = "Arrival: " + arrivalDate +
-                "\nDeparture: " + departureDate;
+        String stringDate = "Arrival: " + arrivalDate + "\nDeparture: " + departureDate;
         reservation.setText(stringDate);
 
         dateClass = new DateClass();
@@ -107,6 +105,7 @@ public class BookReservation extends BaseActivity {
                 TextView textView = new TextView(this);
                 textView.setText(ageGroups.get(i) + groupQty.get(i));
                 textView.setTextSize(20);
+                textView.setTextColor(getResources().getColor(R.color.Black));
                 linearLayout.setGravity(Gravity.CENTER);
                 linearLayout.addView(textView);
             }

@@ -1,12 +1,12 @@
 plugins {
-    id 'com.android.application'
+     id 'com.android.application'
     id 'com.google.gms.google-services'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
+    namespace 'net.androidbootcamp.campmoab'
     compileSdk 34
-    buildToolsVersion '30.0.3'
 
     defaultConfig {
         applicationId "net.androidbootcamp.campmoab"
@@ -18,10 +18,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    task wrapper(type: Wrapper){
-        gradleVersion = '7.2'
-    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -30,8 +26,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     buildFeatures {

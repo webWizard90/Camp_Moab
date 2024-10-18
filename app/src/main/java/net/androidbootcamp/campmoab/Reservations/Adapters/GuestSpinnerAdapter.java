@@ -29,7 +29,7 @@ public class GuestSpinnerAdapter extends ArrayAdapter<String> {
     private LayoutInflater inflater;
 
     public GuestSpinnerAdapter(Context context, List<String> ageGroups, List<String> ageGroupTitles, CustomSpinnerClass customSpinner) {
-        super(context, R.layout.activity_booking_spinner_age_groups, ageGroups);
+        super(context, R.layout.activity_reservation_spinner_age_groups, ageGroups);
         this.context = context;
         this.ageGroups = ageGroups != null ? ageGroups : new ArrayList<>();
         this.ageGroupTitles = ageGroupTitles != null ? ageGroupTitles : new ArrayList<>();
@@ -57,7 +57,7 @@ public class GuestSpinnerAdapter extends ArrayAdapter<String> {
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // Inflate the rounded_dropdown_background container layout
-        View dropdownView = inflater.inflate(R.layout.activity_booking_spinner_container, parent, false);
+        View dropdownView = inflater.inflate(R.layout.activity_reservation_spinner_container, parent, false);
 
         // Add the item view to the rounded_dropdown_background layout (container)
         LinearLayout container = dropdownView.findViewById(R.id.ageGroupContainerLayout); // Ensure container has the right ID
@@ -67,7 +67,7 @@ public class GuestSpinnerAdapter extends ArrayAdapter<String> {
 
         for (int i = 0; i < ageGroups.size(); i++) {
             // Inflate the item layout for each age group
-            View itemView = inflater.inflate(R.layout.activity_booking_spinner_age_groups, parent, false);
+            View itemView = inflater.inflate(R.layout.activity_reservation_spinner_age_groups, parent, false);
 
             ViewHolder viewHolder = new ViewHolder();
 

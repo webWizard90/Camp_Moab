@@ -62,7 +62,7 @@ public class CalendarActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getLayoutInflater().inflate(R.layout.activity_booking_calendar, findViewById(R.id.content_frame));
+        getLayoutInflater().inflate(R.layout.activity_reservation_calendar, findViewById(R.id.content_frame));
         toolbar.setTitle("Book Your Stay");
 
         calendarView = (MaterialCalendarView) findViewById(R.id.calendarView);

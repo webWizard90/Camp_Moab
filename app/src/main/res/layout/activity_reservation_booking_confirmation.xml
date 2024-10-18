@@ -2,24 +2,27 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:adjustViewBounds="true"
     tools:context=".Reservations.BookReservation"
     android:background="@drawable/grad">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginBottom="15dp" >
 
         <TextView
             android:id="@+id/txtReservation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:text="RESERVATION DATE"
-            android:fontFamily="sans-serif"
-            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -27,22 +30,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtReservation"
-            android:layout_marginTop="2dp"
-            android:fontFamily="sans-serif"
-            android:padding="10dp"
             android:text=""
-            android:textSize="22sp" />
+            android:textSize="20sp"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtGuests"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/resDate"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
+            android:layout_marginTop="5dp"
             android:text="GUESTS"
-            android:fontFamily="sans-serif"
-            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -50,9 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtGuests"
-            android:layout_marginTop="2dp"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:textColor="@color/black" >
 
         </LinearLayout>
 
@@ -61,41 +60,47 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/guestLinearList"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
+            android:layout_marginTop="20dp"
             android:text="NOTES:"
-            android:fontFamily="sans-serif"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/txtBox"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_below="@+id/txtNotes"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
             android:adjustViewBounds="true"
-            android:padding="10dp"
             android:background="@drawable/border"
             android:gravity="top|left"
-            android:text="" />
+            android:text=""
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/btnConfirmRes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtBox"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
             android:text="@string/btnConfirmRes"
             android:padding="10dp"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true" />
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/txtReservationMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnConfirmRes"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@string/txtReservationMessage"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
     </RelativeLayout>
 </ScrollView>

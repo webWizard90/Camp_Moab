@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ActionMenuView;
 import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
@@ -24,17 +23,15 @@ import net.androidbootcamp.campmoab.UserAccountAttributes.UserAccount;
 
 public class BaseActivity extends AppCompatActivity {
     protected MaterialToolbar toolbar;
-    protected ActionMenuView actionMenuView;
     private FirebaseHelperClass firebaseHelper;
     private FirebaseUser user;
     private String UID;
-    private static final String ADMINS = "Admins";
     private boolean isAdmin = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base_layout); // Use a layout that includes the toolbar
+        setContentView(R.layout.activity_base_layout); // Use a layout that includes the toolbar options
         toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
 
@@ -42,7 +39,7 @@ public class BaseActivity extends AppCompatActivity {
         user = firebaseHelper.getCurrentUser();
         UID = user.getUid();
 
-        // Set up navigation or home button listener
+        // Set up navigation or back button listener
         if (toolbar != null) {
             setSupportActionBar(toolbar);
             toolbar.setNavigationOnClickListener(v -> onBackPressed()); // Handle back button
@@ -60,7 +57,7 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);  // Inflate your menu
+        getMenuInflater().inflate(R.menu.menu, menu);  // Inflate your menu
         return true;
     }
 

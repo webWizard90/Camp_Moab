@@ -17,6 +17,8 @@
         <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
         <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen</item>
         <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar</item>
+
+        <item name="android:windowFullscreen">false</item>
     </style>
 
     <style name="fullViewTheme" parent="Theme.MaterialComponents.Light.NoActionBar">

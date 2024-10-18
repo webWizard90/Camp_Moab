@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import net.androidbootcamp.campmoab.Amenities.Amenities;
+import net.androidbootcamp.campmoab.BaseActivities.BaseActivity;
 import net.androidbootcamp.campmoab.BaseActivities.BaseMainActivity;
 import net.androidbootcamp.campmoab.ArrivalsDepartures.Arrival;
 import net.androidbootcamp.campmoab.ArrivalsDepartures.Departure;

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserAccountAttributes.LogoutActivity"
-    android:background="@drawable/bkgrd_main">
+    android:background="@drawable/bkgrd_main"
+    android:adjustViewBounds="true" >
 
     <TextView
         android:layout_width="match_parent"
